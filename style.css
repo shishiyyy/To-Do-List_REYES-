@@ -1,0 +1,182 @@
+* {
+box-sizing: border-box;
+}
+
+body {
+font-family: Arial, sans-serif;
+background-color: #fff5f7;
+margin: 0;
+padding: 50px 20px;
+color: #444;
+}
+
+.container {
+display: flex;
+justify-content: center;
+align-items: flex-start;
+margin: auto;
+max-width: 1000px;
+}
+
+.todo-box {
+background-color: white;
+border: 1px solid #e8b9c7;
+border-radius: 12px;
+padding: 25px;
+width: 500px;
+box-shadow: 0 4px 12px rgba(180, 100, 130, 0.08);
+}
+
+h1 {
+font-size: 24px;
+margin-top: 0;
+color: #684653;
+}
+
+.add-form {
+display: flex;
+gap: 7px;
+margin-bottom: 20px;
+}
+
+input {
+padding: 10px;
+border: 1px solid #e5c1cc;
+border-radius: 7px;
+outline: none;
+}
+
+#taskInput {
+flex: 1;
+min-width: 0;
+}
+
+#hoursInput {
+width: 65px;
+}
+
+button {
+cursor: pointer;
+border: none;
+border-radius: 7px;
+padding: 10px 15px;
+}
+
+.add-btn {
+background-color: #bd8195;
+color: white;
+font-weight: bold;
+}
+
+.add-btn:hover {
+background-color: #a96880;
+}
+
+.filters {
+display: flex;
+justify-content: space-between;
+align-items: center;
+margin-bottom: 12px;
+font-size: 13px;
+}
+
+.filter-btn {
+background: none;
+color: #806b73;
+padding: 5px 10px;
+}
+
+.filter-btn.active {
+border: 1px solid #bd8195;
+border-radius: 20px;
+color: #a96880;
+}
+
+.link-btn {
+background: none;
+color: #a96880;
+text-decoration: underline;
+padding: 5px;
+font-size: 12px;
+}
+
+.task {
+display: flex;
+align-items: center;
+gap: 10px;
+padding: 12px 5px;
+border-bottom: 1px solid #f3e5e9;
+font-size: 14px;
+}
+
+.task input {
+accent-color: #bd8195;
+}
+
+.task-name {
+flex: 1;
+cursor: pointer;
+}
+
+.completed .task-name {
+text-decoration: line-through;
+color: #aaa;
+}
+
+.difficulty {
+font-size: 11px;
+padding: 4px 9px;
+border-radius: 15px;
+background-color: #f8e8ed;
+color: #9c6177;
+cursor: pointer;
+}
+
+.medium {
+background-color: #f5dce5;
+}
+
+.hard {
+background-color: #bd8195;
+color: white;
+}
+
+.delete-btn {
+background: none;
+color: #a58b94;
+padding: 4px;
+}
+
+.footer {
+display: flex;
+justify-content: space-between;
+align-items: center;
+margin-top: 15px;
+font-size: 12px;
+color: #806b73;
+}
+
+.hint {
+text-align: center;
+font-size: 11px;
+line-height: 1.6;
+color: #a58b94;
+margin-top: 25px;
+}
+
+@media (max-width: 550px) {
+body {
+padding: 25px 12px;
+}
+
+.todo-box {
+width: 100%;
+padding: 18px;
+}
+
+.task {
+gap: 6px;
+font-size: 12px;
+}
+}
+
