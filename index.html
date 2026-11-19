@@ -3,224 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Todo List</title>
 
-<style>
-* {
-box-sizing: border-box;
-}
-
-body {
-font-family: Arial, sans-serif;
-background-color: #fff5f7;
-margin: 0;
-padding: 50px 20px;
-color: #444;
-}
-
-.container {
-display: flex;
-justify-content: center;
-align-items: flex-start;
-gap: 40px;
-max-width: 1000px;
-margin: auto;
-}
-
-.todo-box {
-background-color: white;
-border: 1px solid #e8b9c7;
-border-radius: 12px;
-padding: 25px;
-width: 500px;
-box-shadow: 0 4px 12px rgba(180, 100, 130, 0.08);
-}
-
-h1 {
-font-size: 24px;
-margin-top: 0;
-color: #684653;
-}
-
-.add-form {
-display: flex;
-gap: 7px;
-margin-bottom: 20px;
-}
-
-input {
-padding: 10px;
-border: 1px solid #e5c1cc;
-border-radius: 7px;
-outline: none;
-}
-
-#taskInput {
-flex: 1;
-min-width: 0;
-}
-
-#hoursInput {
-width: 65px;
-}
-
-button {
-cursor: pointer;
-border: none;
-border-radius: 7px;
-padding: 10px 15px;
-}
-
-.add-btn {
-background-color: #bd8195;
-color: white;
-font-weight: bold;
-}
-
-.add-btn:hover {
-background-color: #a96880;
-}
-
-.filters {
-display: flex;
-justify-content: space-between;
-align-items: center;
-margin-bottom: 12px;
-font-size: 13px;
-}
-
-.filter-btn {
-background: none;
-color: #806b73;
-padding: 5px 10px;
-}
-
-.filter-btn.active {
-border: 1px solid #bd8195;
-border-radius: 20px;
-color: #a96880;
-}
-
-.link-btn {
-background: none;
-color: #a96880;
-text-decoration: underline;
-padding: 5px;
-font-size: 12px;
-}
-
-.task {
-display: flex;
-align-items: center;
-gap: 10px;
-padding: 12px 5px;
-border-bottom: 1px solid #f3e5e9;
-font-size: 14px;
-}
-
-.task input {
-accent-color: #bd8195;
-}
-
-.task-name {
-flex: 1;
-cursor: pointer;
-}
-
-.completed .task-name {
-text-decoration: line-through;
-color: #aaa;
-}
-
-.difficulty {
-font-size: 11px;
-padding: 4px 9px;
-border-radius: 15px;
-background-color: #f8e8ed;
-color: #9c6177;
-}
-
-.medium {
-background-color: #f5dce5;
-}
-
-.hard {
-background-color: #bd8195;
-color: white;
-}
-
-.delete-btn {
-background: none;
-color: #a58b94;
-padding: 4px;
-}
-
-.footer {
-display: flex;
-justify-content: space-between;
-align-items: center;
-margin-top: 15px;
-font-size: 12px;
-color: #806b73;
-}
-
-.hint {
-text-align: center;
-font-size: 11px;
-line-height: 1.6;
-color: #a58b94;
-margin-top: 25px;
-}
-
-.annotations {
-width: 300px;
-font-size: 12px;
-color: #806b73;
-}
-
-.annotations h3 {
-font-size: 13px;
-letter-spacing: 1px;
-color: #a96880;
-}
-
-.note {
-display: flex;
-gap: 12px;
-margin-bottom: 20px;
-line-height: 1.5;
-}
-
-.number {
-background-color: #bd8195;
-color: white;
-width: 20px;
-height: 20px;
-min-width: 20px;
-border-radius: 50%;
-display: flex;
-align-items: center;
-justify-content: center;
-font-weight: bold;
-}
-
-@media (max-width: 750px) {
-.container {
-flex-direction: column;
-align-items: center;
-}
-
-.todo-box {
-width: 100%;
-max-width: 500px;
-}
-
-.annotations {
-width: 100%;
-max-width: 500px;
-}
-}
-</style>
+<link rel="stylesheet" href="style.css">
 </head>
 
 <body>
@@ -232,253 +18,79 @@ max-width: 500px;
 <h1>Todo List</h1>
 
 <div class="add-form">
-<input type="text" id="taskInput"
-placeholder="What needs to be done?">
 
-<input type="number" id="hoursInput"
-value="0" min="0">
+<input
+type="text"
+id="taskInput"
+placeholder="What needs to be done?"
+>
+
+<input
+type="number"
+id="hoursInput"
+value="0"
+min="0"
+>
 
 <button class="add-btn" onclick="addTask()">
 Add
 </button>
+
 </div>
 
 <div class="filters">
+
 <div>
 <button class="filter-btn active"
-onclick="filterTasks('all', this)">All</button>
+onclick="filterTasks('all', this)">
+All
+</button>
 
 <button class="filter-btn"
-onclick="filterTasks('active', this)">Active</button>
+onclick="filterTasks('active', this)">
+Active
+</button>
 
 <button class="filter-btn"
-onclick="filterTasks('completed', this)">Completed</button>
+onclick="filterTasks('completed', this)">
+Completed
+</button>
 </div>
 
 <button class="link-btn" onclick="markAllDone()">
 Mark all done
 </button>
+
 </div>
 
 <div id="taskList"></div>
 
 <div class="footer">
-<span id="taskCount">0 items left · 0 hours total</span>
+
+<span id="taskCount">
+0 items left · 0 hours total
+</span>
 
 <button class="link-btn" onclick="clearCompleted()">
 Clear completed
 </button>
+
 </div>
 
 <p class="hint">
 Easy: up to 2h · Medium: over 2h · Hard: over 5h.
 <br>
 Double-click a task to edit its text.
+Double-click its label to edit hours.
+<br>
+Press Enter to save and Escape to cancel.
 </p>
 
 </div>
 
-<div class="annotations">
-
-<h3>ANNOTATIONS</h3>
-
-<div class="note">
-<span class="number">1</span>
-<span><b>Header.</b> App title.</span>
 </div>
 
-<div class="note">
-<span class="number">2</span>
-<span><b>Add form.</b> Enter task name and estimated hours. Press Add to submit.</span>
-</div>
-
-<div class="note">
-<span class="number">3</span>
-<span><b>Filters.</b> All / Active / Completed. Mark all done finishes every task.</span>
-</div>
-
-<div class="note">
-<span class="number">4</span>
-<span><b>Task row.</b> Checkbox, task name, difficulty label, and delete button.</span>
-</div>
-
-<div class="note">
-<span class="number">5</span>
-<span><b>Difficulty label.</b> From hours: Easy ≤ 2h, Medium over 2h, Hard over 5h.</span>
-</div>
-
-<div class="note">
-<span class="number">6</span>
-<span><b>Footer.</b> Shows unfinished task count and total hours.</span>
-</div>
-
-<div class="note">
-<span class="number">7</span>
-<span><b>Hint.</b> Instructions and editing shortcuts.</span>
-</div>
-
-</div>
-
-</div>
-
-<script>
-
-let tasks = [
-{ name: "Reply to emails", hours: 1, done: false },
-{ name: "Fix login bug", hours: 4, done: false },
-{ name: "Build reports page", hours: 6, done: false },
-{ name: "Plan sprint", hours: 2, done: true }
-];
-
-let currentFilter = "all";
-
-function addTask() {
-let name = document.getElementById("taskInput").value;
-let hours = Number(document.getElementById("hoursInput").value);
-
-if (name.trim() === "") {
-alert("Please enter a task!");
-return;
-}
-
-if (hours < 0 || !Number.isFinite(hours)) {
-alert("Please enter valid hours!");
-return;
-}
-
-tasks.push({
-name: name,
-hours: hours,
-done: false
-});
-
-document.getElementById("taskInput").value = "";
-document.getElementById("hoursInput").value = "0";
-
-displayTasks();
-}
-
-function displayTasks() {
-let list = document.getElementById("taskList");
-list.innerHTML = "";
-
-let totalHours = 0;
-let remaining = 0;
-
-tasks.forEach(function(task, index) {
-
-if (!task.done) {
-remaining++;
-totalHours += task.hours;
-}
-
-if (currentFilter === "active" && task.done) return;
-if (currentFilter === "completed" && !task.done) return;
-
-let difficulty = "Easy";
-let className = "";
-
-if (task.hours > 5) {
-difficulty = "Hard";
-className = "hard";
-} else if (task.hours > 2) {
-difficulty = "Medium";
-className = "medium";
-}
-
-let row = document.createElement("div");
-row.className = "task";
-
-if (task.done) {
-row.classList.add("completed");
-}
-
-row.innerHTML = `
-<input type="checkbox"
-${task.done ? "checked" : ""}
-onchange="toggleTask(${index})">
-
-<span class="task-name"
-ondblclick="editTask(${index})">
-${escapeHTML(task.name)}
-</span>
-
-<span class="difficulty ${className}">
-${difficulty} · ${task.hours}h
-</span>
-
-<button class="delete-btn"
-onclick="deleteTask(${index})">×</button>
-`;
-
-list.appendChild(row);
-});
-
-document.getElementById("taskCount").textContent =
-remaining + " items left · " + totalHours + " hours total";
-}
-
-function escapeHTML(text) {
-return text.replace(/[&<>"']/g, function(char) {
-return {
-"&": "&amp;",
-"<": "&lt;",
-">": "&gt;",
-'"': "&quot;",
-"'": "&#39;"
-}[char];
-});
-}
-
-function toggleTask(index) {
-tasks[index].done = !tasks[index].done;
-displayTasks();
-}
-
-function deleteTask(index) {
-tasks.splice(index, 1);
-displayTasks();
-}
-
-function filterTasks(filter, button) {
-currentFilter = filter;
-
-document.querySelectorAll(".filter-btn").forEach(function(btn) {
-btn.classList.remove("active");
-});
-
-button.classList.add("active");
-displayTasks();
-}
-
-function markAllDone() {
-tasks.forEach(function(task) {
-task.done = true;
-});
-
-displayTasks();
-}
-
-function clearCompleted() {
-tasks = tasks.filter(function(task) {
-return !task.done;
-});
-
-displayTasks();
-}
-
-function editTask(index) {
-let newName = prompt("Edit task:", tasks[index].name);
-
-if (newName !== null && newName.trim() !== "") {
-tasks[index].name = newName.trim();
-displayTasks();
-}
-}
-
-displayTasks();
-
-</script>
+<script src="script.js"></script>
 
 </body>
 </html>
