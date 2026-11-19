@@ -1,5 +1,5 @@
 let tasks = [
-{ name: "Reply to emails", hours: 1, done: false },
+{ name: "Reply", hours: 1, done: false },
 { name: "Fix login bug", hours: 4, done: false },
 { name: "Build reports page", hours: 6, done: false },
 { name: "Plan sprint", hours: 2, done: true }
@@ -13,12 +13,12 @@ let name = document.getElementById("taskInput").value;
 let hours = Number(document.getElementById("hoursInput").value);
 
 if (name.trim() === "") {
-alert("Please enter a task!");
+alert("enter a task!");
 return;
 }
 
 if (hours < 0 || !Number.isFinite(hours)) {
-alert("Please enter valid hours!");
+alert(" enter valid hours!");
 return;
 }
 
